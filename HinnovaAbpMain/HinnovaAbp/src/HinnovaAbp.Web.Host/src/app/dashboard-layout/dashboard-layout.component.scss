@@ -1,0 +1,54 @@
+
+/* Css tự chỉnh */
+/* Chỉnh sửa style header của dx-datagrid */
+.custom-datagrid .dx-datagrid-headers {
+    background-color: #2196f3 !important;
+    font-weight: 600 !important;
+    color: white !important;
+    opacity: 1 !important;
+  }
+  
+  /*Chỉnh sửa style dx-button*/
+  .custom-button .dx-button-content {
+    padding: 8px !important;
+  }
+  /* Đổi phông chữ, tạo animation thay đổi hiệu ứng */
+  .dx-button {
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  .dx-button:hover{
+    cursor: pointer !important;
+  }
+
+  /* Hiệu ứng scale, box-shadow cho .dx-button */
+  .dx-button.dx-state-hover {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.6);
+  }
+  /* Đổi màu: background, border, text */
+  .dx-button-mode-contained.dx-button-success {
+    background-color: white !important;
+    border-color: #ccc !important;
+    color: #2196F3 !important;
+  }
+  /* Thay đổi màu của icon #2196F3 */
+  .dx-button-mode-contained .dx-icon {
+    color: #2196F3 !important;
+  }
+  /* icon cách text 5px */
+  .dx-button-has-text .dx-icon {
+    margin-right: 5px;
+  }
+  
+  
+  
+  

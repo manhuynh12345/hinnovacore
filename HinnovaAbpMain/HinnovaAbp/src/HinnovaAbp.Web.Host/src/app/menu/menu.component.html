@@ -1,0 +1,73 @@
+﻿<div class="row clearfix" [@routerTransition]>
+    <div class="card main-content">
+        <div class="header">
+            <h4 class="card-title">Tìm kiếm</h4>
+            <form (submit)="search()">
+                <dx-form #frmMenu [(formData)]="menuData" validationGroup="formValidateGroup" colCount="2">
+                    <dxi-item dataField="name" [colSpan]="1">
+                        <dxo-label text="Tên menu"></dxo-label>
+                    </dxi-item>
+                    <dxi-item dataField="type" [colSpan]="1" editorType="dxSelectBox" [editorOptions]="menuTypeOptions">
+                        <dxo-label text="Loại menu"></dxo-label>
+                    </dxi-item>
+                </dx-form>
+                <br />
+                <div class="row justify-content-center">
+                    <dx-button text="Tìm kiếm" icon="fa fa-search" type="success" [useSubmitBehavior]="true" validationGroup="formValidateGroup"></dx-button>
+                    &nbsp;
+                    <dx-button text="Đặt lại" icon="fa fa-rotate-left" (onClick)="reset()"></dx-button>
+                </div>
+            </form>
+        </div>
+        <div class="body">
+            <div class="row mb-1">
+                <div class="col-md-12">
+                    <dx-button text="Thêm mới" icon="fa fa-plus" type="success" (click)="menuDetailModal.show()"></dx-button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <dx-data-grid #menuDg [dataSource]="menuDataSource" [showRowLines]="true" [showBorders]="true" [rowAlternationEnabled]="true"
+                                  [wordWrapEnabled]="true" (onContentReady)="onContentReady_MenuDataGrid($event)" (onRowPrepared)="onRowPrepared_MenuDataGrid($event)">
+                        <dxi-column caption="STT" width="60" dataType="number" alignment="center" cellTemplate="sttTemplate"></dxi-column>
+                        <dxi-column dataField="name" caption="Tên menu" dataType="string" cellTemplate="nameTemplate"></dxi-column>
+                        <dxi-column dataField="title" caption="Tên hiển thị" width="150" dataType="string"></dxi-column>
+                        <dxi-column dataField="type" caption="Loại menu" width="150" dataType="string"></dxi-column>
+                        <dxi-column dataField="description" caption="Mô tả" width="150" dataType="string"></dxi-column>
+                        <dxi-column dataField="requiredPermissionName" caption="Quyền truy cập" width="150" dataType="string"></dxi-column>
+                        <dxi-column dataField="link" caption="link" width="220" dataType="string"></dxi-column>
+                        <dxi-column dataField="id" caption="Chi tiết" width="60" dataType="string" alignment="center" cellTemplate="detailTemplate"></dxi-column>
+                        <dxi-column dataField="id" caption="Xóa" width="60" dataType="string" alignment="center" cellTemplate="deleteTemplate"></dxi-column>
+
+                        <div *dxTemplate="let cell of 'nameTemplate'">
+                            <span *ngIf="cell.data.depth == 0" style="font-weight: bold">{{ cell.value }}</span>
+                            <span *ngIf="cell.data.depth != 0" [style.padding-left.px]="cell.data.depth * 20">{{ cell.value }}</span>
+                        </div>
+
+                        <div *dxTemplate="let cell of 'deleteTemplate'">
+                            <i class="mdi mdi-close-circle" style="color:red; cursor: pointer;" (click)="delete(cell.value)"></i>
+                        </div>
+
+                        <div *dxTemplate="let cell of 'detailTemplate'">
+                            <i class="fa fa-list-alt" style="color:#1876d3; cursor: pointer;" (click)="menuDetailModal.detail(cell.value)"></i>
+                        </div>
+
+                        <div *dxTemplate="let cell of 'activeTemplate'">
+                            <i *ngIf="cell.value" class="fa fa-check-circle" style="color:green;"></i>
+                            <i *ngIf="!cell.value" class="fa fa-check-circle" style="color:gray;"></i>
+                        </div>
+
+                        <div *dxTemplate="let cell of 'sttTemplate'">
+                            <span>{{ cell.rowIndex + 1 }}</span>
+                        </div>
+
+                        <dxo-paging [pageSize]="menuData.pageSize" [pageIndex]="menuData.pageIndex"></dxo-paging>
+                        <dxo-pager visible="true" infoText="Trang {0} trên {1} ({2} dòng)" [allowedPageSizes]="[50, 100, 150]" [showPageSizeSelector]="true"
+                                   [showInfo]="true"></dxo-pager>
+                    </dx-data-grid>
+                </div>
+            </div>
+        </div>
+    </div>
+    <menuDetailModal #menuDetailModal (modalSave)="search()"></menuDetailModal>
+</div>

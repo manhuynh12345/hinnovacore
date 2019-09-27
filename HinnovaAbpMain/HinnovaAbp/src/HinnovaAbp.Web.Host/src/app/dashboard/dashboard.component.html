@@ -1,0 +1,46 @@
+<div class="row">
+  <div class="col-12">
+    <div class="card card-outline-info">
+      <div class="card-body" id="content">
+          <div style="text-align: right">
+              <!-- <a href="javascript:void(0)" (click)="config()">
+                <i class="fa fa-cog" aria-hidden="true"></i>
+              </a> -->
+              <a href="javascript:void(0)" (click)="showInfo()">
+                <i class="fa fa-cog" aria-hidden="true"></i>
+              </a>
+            </div>
+        <div class="pulse"></div>
+        <div [innerHTML]="html">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="popup">
+  <dx-popup
+    class="popup"
+    [width]="600"
+    [height]="250"
+    [showTitle]="true"
+    title="Chọn Dashboard"
+    [dragEnabled]="false"
+    [closeOnOutsideClick]="true"
+    [(visible)]="popupVisible">
+    <div *dxTemplate="let data of 'content'">
+      <form (submit)="save()">
+          <dx-form #frmDashboard [(formData)]="dashboardData" validationGroup="formValidateGroup" colCount="1">
+              <dxi-item dataField="id" [colSpan]="1" editorType="dxSelectBox" [editorOptions]="dashboardOptions">
+                  <dxo-label text="Dashboard"></dxo-label>
+              </dxi-item>
+          </dx-form>
+          <br />
+          <div class="row justify-content-center">
+              <dx-button text="Lưu" icon="fa fa-save" type="success" [useSubmitBehavior]="true" validationGroup="formValidateGroup"></dx-button>
+          </div>
+      </form>
+    </div>
+  </dx-popup>
+</div>
+  
+

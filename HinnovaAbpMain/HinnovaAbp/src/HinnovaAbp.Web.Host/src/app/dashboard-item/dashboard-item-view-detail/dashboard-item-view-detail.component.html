@@ -1,0 +1,104 @@
+<div class="card main-content">
+    <form #menuForm="ngForm" novalidate (ngSubmit)="save()">
+        <div class="modal-body">
+            <dx-form #detailForm [(formData)]="dashboardItemData" validationGroup="formValidateGroup" colCount="3">
+                <dxi-item itemType="group" caption="{{page_title}}">
+                    <dxi-item dataField="itemName" [colSpan]="1">
+                        <dxo-label text="Tên component"></dxo-label>
+                    </dxi-item>
+                    <dxi-item dataField="itemCode" [colSpan]="1">
+                        <dxo-label text="Mã component"></dxo-label>
+                    </dxi-item>
+                    <dxi-item dataField="itemType" [colSpan]="1" editorType="dxSelectBox"
+                        [editorOptions]="dashboardItemTypeOptions">
+                        <dxo-label text="Loại component"></dxo-label>
+                    </dxi-item>
+                    <dxi-item dataField="itemGroup" [colSpan]="1" editorType="dxSelectBox"
+                        [editorOptions]="dashboardItemGroupOptions">
+                        <dxo-label text="Nhóm component"></dxo-label>
+                    </dxi-item>
+                </dxi-item>
+                <dxi-item itemType="group" caption="Cấu hình dữ liệu">
+                    <dxi-item dataField="storeProcedure" [colSpan]="1">
+                        <dxo-label text="Store Procedure"></dxo-label>
+                    </dxi-item>
+                    <dxi-item #columnBuilder dataField="columnBuilder" [colSpan]="1" *ngIf="dashboardItemType == 4">
+                        <dxo-label text="Column Builder"></dxo-label>
+                    </dxi-item>
+                </dxi-item>
+                <dxi-item #BASIC itemType="group" caption="{{type_title}}" *ngIf="dashboardItemType == 1">
+                    <dxi-item dataField="boxHeaderIcon" [colSpan]="1">
+                        <dxo-label text="Icon đầu mục"></dxo-label>
+                    </dxi-item>
+                    <dxi-item dataField="boxColor" [colSpan]="1">
+                        <dxo-label text="Màu cho đầu mục"></dxo-label>
+                    </dxi-item>
+                    <dxi-item dataField="boxContent" [colSpan]="1">
+                        <dxo-label text="Nội dung box"></dxo-label>
+                    </dxi-item>
+                    <dxi-item dataField="boxFooterIcon" [colSpan]="1">
+                        <dxo-label text="Icon cuối box"></dxo-label>
+                    </dxi-item>
+                    <dxi-item dataField="boxDetailText" [colSpan]="1">
+                        <dxo-label text="Nội dung cuối box"></dxo-label>
+                    </dxi-item>
+                    <dxi-item dataField="boxUrl" [colSpan]="1">
+                        <dxo-label text="Đường dẫn xem chi tiết"></dxo-label>
+                    </dxi-item>
+                </dxi-item>
+                <dxi-item #MULSIP itemType="group" caption="{{type_title}}" *ngIf="dashboardItemType == 2">
+                    <dxi-item dataField="boxHeaderText" [colSpan]="1">
+                        <dxo-label text="Nội dung đầu mục"></dxo-label>
+                    </dxi-item>
+                    <dxi-item dataField="boxContent" [colSpan]="1">
+                        <dxo-label text="Nội dung box"></dxo-label>
+                    </dxi-item>
+                    <dxi-item dataField="boxDetailText" [colSpan]="1">
+                        <dxo-label text="Nội dung cuối box"></dxo-label>
+                    </dxi-item>
+                    <dxi-item dataField="boxUrl" [colSpan]="1">
+                        <dxo-label text="Đường dẫn xem chi tiết"></dxo-label>
+                    </dxi-item>
+                </dxi-item>
+                <dxi-item #CRT itemType="group" caption="{{type_title}}" *ngIf="dashboardItemType == 3">
+                    <dxi-item dataField="chartType" [colSpan]="1" editorType="dxSelectBox"
+                        [editorOptions]="chartTypeOptions">
+                        <dxo-label text="Loại biểu đồ"></dxo-label>
+                    </dxi-item>
+                    <dxi-item dataField="chartPalette" [colSpan]="1">
+                        <dxo-label text="Bảng màu"></dxo-label>
+                    </dxi-item>
+                    <dxi-item dataField="chartTitle" [colSpan]="1">
+                        <dxo-label text="Tiêu đề biểu đồ"></dxo-label>
+                    </dxi-item>
+                    <dxi-item dataField="chartLabelName" [colSpan]="1" *ngIf="chartTypes == 1 || chartTypes == 2">
+                        <dxo-label text="Nhãn của dữ liệu biểu đồ"></dxo-label>
+                    </dxi-item>
+                    <dxi-item dataField="chartStackedColumnName" [colSpan]="1" *ngIf="chartTypes == 2">
+                        <dxo-label text="Chồng cột"></dxo-label>
+                    </dxi-item>
+                    <dxi-item dataField="chartArgumentField" [colSpan]="1">
+                        <dxo-label text="Tham số biến từ khóa"></dxo-label>
+                    </dxi-item>
+                    <dxi-item dataField="chartValueField" [colSpan]="1">
+                        <dxo-label text="Tham số biến dữ liệu"></dxo-label>
+                    </dxi-item>
+                </dxi-item>
+                <dxi-item #DT itemType="group" caption="{{type_title}}" *ngIf="dashboardItemType == 4">
+                    <dxi-item dataField="boxHeaderText" [colSpan]="1">
+                        <dxo-label text="Tên bảng dữ liệu"></dxo-label>
+                    </dxi-item>
+                </dxi-item>
+            </dx-form>
+        </div>
+
+        <div class="modal-footer">
+            <dx-button text="Lưu" icon="fa fa-save" type="success" validationGroup="formValidateGroup"
+                (onClick)="save()">
+            </dx-button>
+            &nbsp;
+            <dx-button text="Trở về" icon="fa fa-arrow-left" (onClick)="return()"></dx-button>
+        </div>
+    </form>
+
+</div>

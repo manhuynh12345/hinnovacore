@@ -1,0 +1,160 @@
+:host /deep/ #gallery { float: left; width: 100%; min-height: 12em; }
+:host /deep/ .gallery.custom-state-active { background: #eee; }
+:host /deep/ .gallery li {width: 150px; padding: 0.4em; margin: 0 0.4em 0.4em 0; text-align: center; border-radius:3px;background-color: #d6e9fc; }
+:host /deep/ .gallery li h5 { margin: 0 0 0.4em; cursor: move; font-family:Arial; font-size: 14px;}
+:host /deep/.gallery li a { float: right; }
+:host /deep/ .gallery li a.ui-icon-zoomin { float: left; }
+:host /deep/ .gallery li img { width: 100%; cursor: move; }
+ 
+:host /deep/ .div-container { float: right; min-height: 18em; padding: 1%; background: #fff !important;border-radius:5px; width: 100%; padding-bottom:10px;}
+:host /deep/ .div-container h4 { line-height: 26px; margin: 0 0 0.4em; }
+:host /deep/ .div-container h4 .ui-icon { float: left; }
+:host /deep/ .div-container .gallery h5 { display: block; }
+:host /deep/ .div-container_tilte{
+   background-color: #0c9bb7;
+    border: 1px solid #0272e2;
+    padding-left: 3px; 
+    font-size: 15px;
+    color: #fff;
+    font-family: arial;
+    font-weight: bold;
+}
+.button_common{
+    margin-right: 1.0em; background-color: #68c39f; border-color: #68c39f;
+}
+.button_image{
+    padding:0px !important; border: none !important;  margin-right: 1.0em; background-color: #68c39f; border-color: #68c39f;
+}
+.box_homepage{
+    height: 220px;
+    padding: 5px;
+}
+
+    .box_homepage_content {
+        text-align: center;
+        width: 100%;
+        border-radius: 5px;
+        color: white;
+        /*margin-bottom: 5px;*/ 
+    }
+
+    .box_homepage_content_upper {
+        /*height: 100px;*/
+        padding: 10px;
+        font-size: 20px;
+        background: rgba(255, 255, 255, 0.3);
+    }
+
+    .box_homepage_content_lower {
+        position:relative;
+        display: block;
+        vertical-align: middle;
+        font-size:14px !important;
+        font-weight:700;
+        
+    }
+    .box_homepage_number {
+        position:relative;
+        height: 80px;
+        width:80px;
+        display: inline-block;
+        vertical-align: middle;
+        color:red;
+        top:25px;
+        border-radius: 100px;
+        background-color:white;
+        text-align: center;
+        line-height: 80px;
+        font-size:30px !important;
+        
+    }
+    .box_homepage_number_small {
+        position:relative;
+        height: 30px;
+        width:30px;
+        display: inline-block;
+        vertical-align: middle;
+        color:red;
+        border-radius: 100px;
+        background-color:white;
+        text-align: center;
+        line-height: 30px;
+        font-size:14px !important;
+        
+    }
+    .box_homepage_text {
+        position:relative;       
+        width:130px;
+        display: inline-block;
+        vertical-align: middle;
+        color:white;
+        text-align: center;
+        font-size:14px !important;
+        font-weight:700;
+        
+    }
+    .chung{
+        font-size:30px !important;
+    }
+
+    
+    .box_homepage_content_lower img {
+        height: 90%;
+        vertical-align: middle;
+    }
+    
+    .box_homepage_content_lower canvas {
+        color: black;
+    }
+    
+    
+    .box_homepage_content_lower p {
+        position: absolute;
+        top: 50px;
+        width:100%;
+        font-size: 30px;
+        color:red;
+        border-radius: 100px;
+        background-color:white;
+    }
+
+    #chart {
+    height: 190px;
+}
+
+    #pie {
+    height: 190px;
+}
+
+#pie * {
+    margin: 0 auto;
+}
+
+.low.dx-radiobutton-checked .dx-radiobutton-icon .dx-radiobutton-icon-dot {
+    background: gray;
+}
+
+.normal.dx-radiobutton-checked .dx-radiobutton-icon .dx-radiobutton-icon-dot {
+    background: green;
+}
+
+.urgent.dx-radiobutton-checked .dx-radiobutton-icon .dx-radiobutton-icon-dot {
+    background: orange;
+}
+
+.high.dx-radiobutton-checked .dx-radiobutton-icon .dx-radiobutton-icon-dot {
+    background: red;
+}
+
+.dx-item-content{
+    display: none;
+}
+
+.dx-radiobutton-icon{
+    padding-right:90px;
+}
+
+.sticky {
+    position: fixed;
+    top: 60px;
+}

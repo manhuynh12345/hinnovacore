@@ -1,0 +1,40 @@
+<div class="card main-content">
+    <div class="header">
+        <h4 class="card-title">Cấu hình dashboard</h4>
+        <dx-form #frmMenu [(formData)]="dashboardData" validationGroup="formValidateGroup" colCount="2">
+            <dxi-item dataField="name" [colSpan]="1">
+                <dxo-label text="Tên dashboard"></dxo-label>
+            </dxi-item>
+            <dxi-item dataField="layoutId" [colSpan]="1" editorType="dxSelectBox" [editorOptions]="layoutOptions">
+                <dxo-label text="Layout"></dxo-label>
+            </dxi-item>
+        </dx-form>
+        <br />
+        <div class="row justify-content-center">
+            <dx-button text="Lưu" icon="fa fa-save" type="success" (onClick)="save()"></dx-button>
+        </div>
+    </div>
+    <div class="body">
+        <h4 class="card-title">Cấu hình các thành phần</h4>
+        <div id="sticky-anchor-top"></div>
+        <div class="row">
+            <dx-form #frmMenu [(formData)]="dashboardItemData" style="float:left; width: 100%;"
+                validationGroup="formValidateGroup" colCount="1">
+                <dxi-item dataField="itemGroup" [colSpan]="1" editorType="dxSelectBox"
+                    [editorOptions]="dashboardItemGroupOptions">
+                    <dxo-label text="Nhóm component"></dxo-label>
+                </dxi-item>
+            </dx-form>
+        </div>
+        <br />
+        <div class="row">
+            <div style="width: 100%">
+                <div style="float:left; width: 15%;" id="dashboardItem">
+                    <ul id="gallery" class="gallery ui-helper-reset ui-helper-clearfix">
+                    </ul>
+                </div>
+                <div style="float:right;width: 85%;" id="container"></div>
+            </div>
+        </div>
+    </div>
+</div>

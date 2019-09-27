@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <AssetTargetFallback>$(AssetTargetFallback);portable-net45+win8+wp8+wpa81;</AssetTargetFallback>
+    <RootNamespace>HinnovaAbp</RootNamespace>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
+    <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Migrations\20180726102624_Upgrade_ABP_380.cs" />
+    <Compile Remove="Migrations\20180927062408_test.cs" />
+    <Compile Remove="Migrations\20190111071724_Upgraded_To_Abp_v4_1_0.cs" />
+    <Compile Remove="Migrations\20190520101949_CreateLayoutTable.cs" />
+    <Compile Remove="Migrations\20190522085133_CreateDashboardItemType.cs" />
+    <Compile Remove="Migrations\20190522085133_CreateDashboardItemType.Designer.cs" />
+    <Compile Remove="Migrations\20190610081506_CreateDashboardAndDashboardDetail.cs" />
+    <Compile Remove="Migrations\20190610081506_CreateDashboardAndDashboardDetail.Designer.cs" />
+    <Compile Remove="Migrations\20190612085028_update-dashboard.cs" />
+    <Compile Remove="Migrations\20190612085231_DashboardTable.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.2.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.2.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="2.2.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HinnovaAbp.Core\HinnovaAbp.Core.csproj" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,11 @@
+<li class="dropdown">
+  <a href="javascript:void(0);" class="dropdown-toggle no-caret" data-toggle="dropdown" role="button">
+    <i class="{{currentLanguage.icon}}" title="{{currentLanguage.displayName}}"></i>
+    {{currentLanguage.displayName}}
+  </a>
+  <ul class="dropdown-menu">
+    <li *ngFor="let language of languages">
+      <a *ngIf="language.name != currentLanguage.name" (click)="changeLanguage(language.name)"><i class="{{language.icon}}"></i> {{language.displayName}}</a>
+    </li>
+  </ul>
+</li>

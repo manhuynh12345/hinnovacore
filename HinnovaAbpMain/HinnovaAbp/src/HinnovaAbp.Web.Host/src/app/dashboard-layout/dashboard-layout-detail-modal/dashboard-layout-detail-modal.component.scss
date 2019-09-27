@@ -1,0 +1,36 @@
+
+.btn {
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0) !important;
+    border-radius: .25rem !important;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+    height: auto;
+    width: auto;
+    font-size: 15px !important;
+}
+ /* Hiệu ứng scale, box-shadow cho .dx-button */
+.btn:hover, .btn:focus, .btn:active  {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.6) !important;
+}
+.btn:hover{
+    cursor: pointer !important;
+}
+.form-control{
+    border: 1px solid rgba(0,0,0,.15) !important;
+    border-radius: .25rem !important;
+    padding-left: 10px !important;
+}
+
+a.ng2-smart-sort-link.sort.ng-star-inserted {
+    margin-left: 10px;
+}
+
+.btn.btn-info.btn-demo{
+    float: right;
+}

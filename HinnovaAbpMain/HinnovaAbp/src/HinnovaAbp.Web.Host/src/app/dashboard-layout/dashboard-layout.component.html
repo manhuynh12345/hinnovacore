@@ -1,0 +1,51 @@
+<div class="row">
+    <div class="col-12">
+      <div class="card card-outline-info">
+        <div class="card-body">
+            <div class="col-md-12">
+                <dx-button class="custom-button" text="Thêm mới" icon="fa fa-plus" type="success" (click)="createLayout()"></dx-button>
+            </div>
+            <br/>
+            <div class="col-md-12">
+                <dx-data-grid #dashboardLayoutDg [dataSource]="dashboardLayoutDataSource" [showRowLines]="true" [showBorders]="true" [rowAlternationEnabled]="true"
+                    class="custom-datagrid"                
+                [wordWrapEnabled]="true" (onContentReady)="onContentReady_DashboardLayoutDataGrid($event)" (onRowPrepared)="onRowPrepared_DashboardLayoutDataGrid($event)">
+                    <dxi-column caption="STT" width="60" dataType="number" alignment="center" cellTemplate="sttTemplate"></dxi-column>
+                    <dxi-column dataField="name" caption="Tên layout" dataType="string" cellTemplate="nameTemplate"></dxi-column>
+                    <dxi-column dataField="isActive" caption="Active" dataType="boolean" width="60" alignment="center" cellTemplate="activeTemplate"></dxi-column>
+                    <dxi-column dataField="id" caption="Chi tiết" width="80" dataType="number" alignment="center" cellTemplate="detailTemplate"></dxi-column>
+                    <dxi-column dataField="id" caption="Xóa" width="60" dataType="number" alignment="center" cellTemplate="deleteTemplate"></dxi-column>
+
+                    <div *dxTemplate="let cell of 'nameTemplate'">
+                        <span *ngIf="cell.data.depth == 0" style="font-weight: bold">{{ cell.value }}</span>
+                        <span *ngIf="cell.data.depth != 0" [style.padding-left.px]="cell.data.depth * 20">{{ cell.value }}</span>
+                    </div>
+
+                    <div *dxTemplate="let cell of 'deleteTemplate'" data-toggle="tooltip" title="Xóa" >
+                        <i class="mdi mdi-close-circle" style="color:red; cursor: pointer;" (click)="delete(cell.value)"></i>
+                    </div>
+
+                    <div *dxTemplate="let cell of 'detailTemplate'" data-toggle="tooltip" title="Chi tiết" >
+                        <div>
+                            <i class="fa fa-list-alt" style="color: #1876d3; cursor: pointer;" (click)="editLayout(cell.value)" aria-hidden="true"></i>
+                        </div>
+                    </div>
+
+                    <div *dxTemplate="let cell of 'activeTemplate'">
+                        <i *ngIf="cell.value" class="fa fa-check-circle" style="color:green; cursor: pointer;"></i>
+                        <i *ngIf="!cell.value" class="fa fa-check-circle" style="color:gray; cursor: pointer;"></i>
+                    </div>
+
+                    <div *dxTemplate="let cell of 'sttTemplate'">
+                        <span>{{ cell.rowIndex + 1 }}</span>
+                    </div>
+
+                    <dxo-paging [pageSize]="dashboardLayoutData.pageSize" [pageIndex]="dashboardLayoutData.pageIndex"></dxo-paging>
+                    <dxo-pager visible="true" infoText="Trang {0} trên {1} ({2} dòng)" [allowedPageSizes]="[50, 100, 150]" [showPageSizeSelector]="true"
+                                [showInfo]="true"></dxo-pager>
+                </dx-data-grid>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
